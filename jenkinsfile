@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    
+tools {
+    terraform 'Default'
+}
+stages {
+  
+  
+  stage('git') {
+    steps {
+        
+        git 'https://github.com/Axceletron/Jenkins.git'
+        sh 'sudo cp /home/osboxes/vars.tf ./'
+        sh 'ls'
+        sh 'pwd'
+        sh 'cat vars.tf'
+      // One or more steps need to be included within the steps block.
+    }
+  }
+
+
+  stage('init') {
+    steps {
+        sh 'cd terraform'
+        sh 'terraform init'
+      // One or more steps need to be included within the steps block.
+    }
+  }
+
+  stage('infradeploy') {
+    steps {
+      sh 'echo "Create infra"'
+      sh 'terraform apply -auto-approve'
+      sh 'cd ..'
+// One or more steps need to be included within the steps block.
+    }
+  }
+    stage('infradeploy') {
+    steps {
+      sh 'echo "Create infra"'
+      sh 'terraform apply -auto-approve'
+      sh 'cd ..'
+      sh 'aws eks --region us-east-1 update-kubeconfig --name Practise'
+// One or more steps need to be included within the steps block.
+    }
+  }
+
+}
+}
