@@ -68,7 +68,7 @@ module "my-cluster" {
   vpc_id          = module.vpc.vpc_id
   cluster_enabled_log_types = ["api"]
   cluster_endpoint_private_access = true
-  config_output_path = "./"
+
   tags = {
      Name = "${var.project-name}-EKS" 
     Environment = var.env
