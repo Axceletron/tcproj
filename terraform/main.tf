@@ -49,7 +49,7 @@ module "vpc" {
     Project = var.project-name
   }
 }
-
+/*
 data "aws_eks_cluster" "cluster" {
   name = module.my-cluster.cluster_id
 }
