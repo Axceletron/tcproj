@@ -30,7 +30,7 @@ module "vpc" {
   private_subnets = local.cidr_blk_pvt
   public_subnets  = local.cidr_blk_pub
   public_subnet_tags = {
-    kubernetes.io/cluster/Practise = "shared"
+    "kubernetes.io/cluster/Practise" = "shared"
   }
   enable_nat_gateway = true
   enable_vpn_gateway = true
