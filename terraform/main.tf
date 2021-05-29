@@ -65,7 +65,7 @@ provider "kubernetes" {
   load_config_file       = false
   version                = "~> 1.9"
 }
-
+/*
 module "my-cluster" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = var.cluster_name
@@ -97,3 +97,4 @@ output "cl_ep" {
 output "config" {
   value = module.my-cluster.kubeconfig
 }
+*/
